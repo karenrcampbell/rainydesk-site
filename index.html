@@ -1,243 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rainy Desk</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rainy Desk</title>
 
-    <!-- Modern, simple font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Modern, simple font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
-    <style>
-      :root {
-        --text: #000000;
-        --bg: #ffffff;
-        --card-bg: #f9fafb;
-        --muted: #555555;
-        --border: #e5e7eb;
-        --cta-bg: #165b97;
-        --cta-hover: #124a7a;
-      }
-      * {
-        box-sizing: border-box;
-      }
+  <style>
+    :root {
+      --text: #000000;
+      --bg: #ffffff;
+      --card-bg: #f9fafb;
+      --muted: #555555;
+      --border: #e5e7eb;
+      --cta-bg: #165b97;
+      --cta-hover: #124a7a;
+    }
+    * { box-sizing: border-box; }
 
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-        font-family: "Inter", sans-serif;
-      }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
 
-      header {
-        text-align: center;
-        padding: 2rem 1rem;
-        border-bottom: 1px solid var(--border);
-      }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 1rem;
+      max-width: 300px;
+      width: 90%;
+      height: auto;
+    }
+    .tagline {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+    .hero-copy {
+      max-width: 640px;
+      margin: 1rem auto 2rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    .hero-cta a {
+      background: var(--cta-bg);
+      color: #ffffff;
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .hero-cta a:hover {
+      background: var(--cta-hover);
+    }
 
-      .logo {
-        display: block;
-        margin: 0 auto;
-        max-width: 300px;
-        width: 90%;
-        height: auto;
-      }
+    section {
+      max-width: 960px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .plan {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      padding: 1.75rem;
+      width: 280px;
+      transition: transform 0.2s;
+    }
+    .plan:hover { transform: translateY(-4px); }
+    .plan h3 { margin-top: 0; font-size: 1.3rem; font-weight: 600; }
+    .plan p { margin: 0.5rem 0 1rem; color: var(--muted); font-size: 1rem; }
+    .plan ul { list-style: disc; padding-left: 1.2rem; margin: 0; }
+    .plan ul li { margin-bottom: 0.5rem; font-size: 0.95rem; }
 
-      .tagline {
-        margin-top: 1rem;
-        font-size: 1.3rem;
-        font-weight: 600;
-      }
+    .cta {
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+    }
+    .cta p {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .cta a {
+      background: var(--cta-bg);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta a:hover { background: var(--cta-hover); }
 
-      section {
-        max-width: 960px;
-        margin: 2rem auto 3rem;
-        padding: 0 1.5rem;
-      }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body>
 
-      h2 {
-        font-size: 1.6rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-      }
+  <header>
+    <img src="logo.png" alt="Rainy Desk Logo" class="logo" />
+    <div class="tagline">We make it rain—productivity, that is.</div>
+    <p class="hero-copy">
+      Rainy Desk frees you from the never‐ending to‐do list by handling your inbox, calendar, documents, and more—all on a simple monthly retainer. Focus on what only you can do; leave the rest to us.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:hellorainydesk@gmail.com">Get Started</a>
+    </div>
+  </header>
 
-      .plans {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-        margin-top: 1.5rem;
-      }
-
-      .plan {
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-        padding: 1.75rem;
-        width: 280px;
-        transition: transform 0.2s;
-      }
-      .plan:hover {
-        transform: translateY(-4px);
-      }
-      .plan h3 {
-        margin-top: 0;
-        font-size: 1.3rem;
-        font-weight: 600;
-      }
-      .plan p {
-        margin: 0.5rem 0 1rem;
-        color: var(--muted);
-        font-size: 1rem;
-      }
-      .plan ul {
-        list-style: disc;
-        padding-left: 1.2rem;
-        margin: 0;
-      }
-      .plan ul li {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-      }
-
-      .cta {
-        text-align: center;
-        margin: 2.5rem 0 1rem;
-      }
-      .cta p {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-      .cta a {
-        background: var(--cta-bg);
-        color: #ffffff;
-        padding: 0.75rem 1.5rem;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        transition: background 0.2s;
-        font-family: "Inter", sans-serif;
-      }
-      .cta a:hover {
-        background: var(--cta-hover);
-      }
-
-      footer {
-        text-align: center;
-        padding: 1.5rem 1rem;
-        font-size: 0.9rem;
-        color: var(--muted);
-        font-family: "Inter", sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="logo.png" alt="Rainy Desk Logo" class="logo" />
-      <div class="tagline">We make it rain—productivity, that is.</div>
-    </header>
-
-    <section>
-      <h2>Monthly Retainer Packages</h2>
-      <div class="plans">
-        <div class="plan">
-          <h3>Essentials — $750/month</h3>
-          <p>Up to 15 hours/month</p>
-          <ul>
-            <li>
-              Inbox management & follow-up<br /><small
-                >→ Sorting, flagging, drafting replies</small
-              >
-            </li>
-            <li>
-              Scheduling & calendar coordination<br /><small
-                >→ Meetings, Zoom links, reminders</small
-              >
-            </li>
-            <li>
-              File cleanup & organization<br /><small
-                >→ Google Drive, Dropbox</small
-              >
-            </li>
-            <li>
-              Light research & data entry<br /><small
-                >→ Compiling lists, spreadsheets</small
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="plan">
-          <h3>Growth — $1,250/month</h3>
-          <p>Up to 25 hours/month</p>
-          <ul>
-            <li>All Essentials features</li>
-            <li>
-              Client follow-ups & CRM updates<br /><small
-                >→ Recaps, notes, deal tracking</small
-              >
-            </li>
-            <li>
-              Drafting emails & documents<br /><small
-                >→ Summaries, thank-you notes</small
-              >
-            </li>
-            <li>
-              Canva graphics & social formatting<br /><small
-                >→ Reports, one-pagers</small
-              >
-            </li>
-            <li>
-              Recurring task management<br /><small
-                >→ Checklists & reminders</small
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="plan">
-          <h3>VIP — $2,000/month</h3>
-          <p>Up to 40 hours/month</p>
-          <ul>
-            <li>All Growth features</li>
-            <li>
-              Proposal prep & event coordination<br /><small
-                >→ Itineraries, materials</small
-              >
-            </li>
-            <li>
-              Vendor & client communication<br /><small
-                >→ Scheduling, follow-ups</small
-              >
-            </li>
-            <li>
-              Project checklists & reporting<br /><small
-                >→ Deadline tracking</small
-              >
-            </li>
-            <li>Ongoing availability during busy seasons</li>
-            <li>
-              <strong>Optional add-on:</strong> Virtual meeting attendance —
-              <strong>$150/month</strong>
-            </li>
-          </ul>
-        </div>
+  <section>
+    <h2>Monthly Retainer Packages</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Essentials — $750/month</h3>
+        <p>Up to 15 hours/month</p>
+        <ul>
+          <li>Inbox management & follow‐up</li>
+          <li>Scheduling & calendar coordination</li>
+          <li>File cleanup & organization</li>
+          <li>Light research & data entry</li>
+        </ul>
       </div>
-
-      <div class="cta">
-        <p>Ready to offload the work? Let’s keep it simple.</p>
-        <a href="mailto:hellorainydesk@gmail.com">Email Rainy Desk</a>
+      <div class="plan">
+        <h3>Growth — $1,250/month</h3>
+        <p>Up to 25 hours/month</p>
+        <ul>
+          <li>All Essentials features</li>
+          <li>Client follow‐ups & CRM updates</li>
+          <li>Drafting emails & documents</li>
+          <li>Canva graphics & social formatting</li>
+          <li>Recurring task management</li>
+        </ul>
       </div>
-    </section>
+      <div class="plan">
+        <h3>VIP — $2,000/month</h3>
+        <p>Up to 40 hours/month</p>
+        <ul>
+          <li>All Growth features</li>
+          <li>Proposal prep & event coordination</li>
+          <li>Vendor & client communication</li>
+          <li>Project checklists & reporting</li>
+          <li>Ongoing availability during busy seasons</li>
+          <li><strong>Optional add‐on:</strong> Virtual meeting attendance — <strong>$150/month</strong></li>
+        </ul>
+      </div>
+    </div>
 
-    <footer>
-      &copy; 2025 Rainy Desk · Based in OKC · Serving clients virtually
-      nationwide
-    </footer>
-  </body>
+    <div class="cta">
+      <p>Ready to offload the work? Let’s keep it simple.</p>
+      <a href="mailto:hellorainydesk@gmail.com">Email Rainy Desk</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Rainy Desk · Based in OKC · Serving clients virtually nationwide
+  </footer>
+</body>
+</html>
+
 </html>
