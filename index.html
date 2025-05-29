@@ -1,195 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rainy Desk</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rainy Desk</title>
 
-  <!-- Comfortaa font -->
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- Comfortaa font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root {
-      --text: #000000;
-      --bg: #ffffff;
-      --card-bg: #f9fafb;
-      --muted: #555555;
-      --border: #e5e7eb;
-      --cta-bg: #165b97;
-      --cta-hover: #124a7a;
-    }
-    * { box-sizing: border-box; }
+    <style>
+      :root {
+        --text: #000000;
+        --bg: #ffffff;
+        --card-bg: #f9fafb;
+        --muted: #555555;
+        --border: #e5e7eb;
+        --cta-bg: #165b97;
+        --cta-hover: #124a7a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Comfortaa", cursive;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-family: 'Comfortaa', cursive;
-    }
+      header {
+        text-align: center;
+        padding: 3rem 1rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .logo {
+        max-width: 300px;
+        width: 90%;
+        margin: 0 auto 1rem;
+        display: block;
+      }
+      .tagline {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .hero-copy {
+        max-width: 640px;
+        margin: 1rem auto 2rem;
+        color: var(--muted);
+      }
+      .hero-cta p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .hero-cta a {
+        background: var(--cta-bg);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.2s;
+        display: inline-block;
+      }
+      .hero-cta a:hover {
+        background: var(--cta-hover);
+      }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 1rem;
-      max-width: 300px;
-      width: 90%;
-      height: auto;
-    }
-    .tagline {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin: 0.5rem 0;
-    }
-    .hero-copy {
-      max-width: 640px;
-      margin: 1rem auto 2rem;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-    .hero-cta a {
-      background: var(--cta-bg);
-      color: #ffffff;
-      padding: 0.75rem 1.75rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background 0.2s;
-      font-family: 'Comfortaa', cursive;
-    }
-    .hero-cta a:hover {
-      background: var(--cta-hover);
-    }
+      section {
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
 
-    section {
-      max-width: 960px;
-      margin: 2rem auto 3rem;
-      padding: 0 1.5rem;
-    }
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    .plans {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-    .plan {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      padding: 1.75rem;
-      width: 280px;
-      transition: transform 0.2s;
-      font-family: 'Comfortaa', cursive;
-    }
-    .plan:hover { transform: translateY(-4px); }
-    .plan h3 { margin-top: 0; font-size: 1.3rem; font-weight: 600; }
-    .plan p { margin: 0.5rem 0 1rem; color: var(--muted); font-size: 1rem; }
-    .plan ul { list-style: disc; padding-left: 1.2rem; margin: 0; }
-    .plan ul li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+      /* Our Services */
+      .services-nav {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 2rem 0;
+      }
+      .services-nav li {
+        font-weight: 600;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .services-nav li + li {
+        margin-left: 1rem;
+      }
+      .services-nav li + li::before {
+        content: "|";
+        margin: 0 0.5rem;
+        color: var(--muted);
+      }
 
-    .cta {
-      text-align: center;
-      margin: 2.5rem 0 1rem;
-    }
-    .cta p {
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .cta a {
-      background: var(--cta-bg);
-      color: #ffffff;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background 0.2s;
-      font-family: 'Comfortaa', cursive;
-    }
-    .cta a:hover { background: var(--cta-hover); }
+      /* Client Snapshots */
+      .case-studies {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      .case {
+        border: 1px solid var(--border);
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+      .case h4 {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .case p {
+        margin-bottom: 0.5rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .case p.impact {
+        font-weight: 600;
+      }
 
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-family: 'Comfortaa', cursive;
-    }
-  </style>
-</head>
-<body>
+      /* Packages */
+      .plans {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .plan {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.75rem;
+        width: 280px;
+        transition: transform 0.2s;
+      }
+      .plan:hover {
+        transform: translateY(-4px);
+      }
+      .plan h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .plan p {
+        margin-bottom: 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .plan ul {
+        list-style: disc outside;
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+      }
+      .plan ul li {
+        margin-bottom: 0.5rem;
+      }
 
-  <header>
-    <img src="logo.png" alt="Rainy Desk Logo" class="logo" />
-    <div class="tagline">We make it rain—productivity, that is.</div>
-    <p class="hero-copy">
-      Rainy Desk frees you from the never‐ending to‐do list by handling your inbox, calendar, documents, and more—all on a simple monthly retainer. Focus on what only you can do; leave the rest to us.
-    </p>
-    <div class="hero-cta">
-      <a href="mailto:hellorainydesk@gmail.com">Get Started</a>
-    </div>
-  </header>
+      .cta {
+        text-align: center;
+        margin: 2rem 0 1.5rem;
+      }
+      .cta p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .cta a {
+        background: var(--cta-bg);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.2s;
+        display: inline-block;
+      }
+      .cta a:hover {
+        background: var(--cta-hover);
+      }
 
-  <section>
-    <h2>Monthly Retainer Packages</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Essentials — $750/month</h3>
-        <p>Up to 15 hours/month</p>
-        <ul>
-          <li>Inbox management & follow‐up</li>
-          <li>Scheduling & calendar coordination</li>
-          <li>File cleanup & organization</li>
-          <li>Light research & data entry</li>
-        </ul>
+      footer {
+        text-align: center;
+        padding: 1.5rem 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Rainy Desk Logo" class="logo" />
+      <div class="tagline">We make it rain—productivity, that is.</div>
+      <p class="hero-copy">
+        Rainy Desk frees you from the never-ending to-do list by drafting key
+        materials, coordinating meetings, and managing event details—all on one
+        easy monthly plan. Focus on what only you can do; we’ll take care of the
+        rest.
+      </p>
+      <div class="hero-cta">
+        <p>Reclaim your time.</p>
+        <a href="https://yourdomain.com/intake-form">Get started</a>
       </div>
-      <div class="plan">
-        <h3>Growth — $1,250/month</h3>
-        <p>Up to 25 hours/month</p>
-        <ul>
-          <li>All Essentials features</li>
-          <li>Client follow‐ups & CRM updates</li>
-          <li>Drafting emails & documents</li>
-          <li>Canva graphics & social formatting</li>
-          <li>Recurring task management</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <h3>VIP — $2,000/month</h3>
-        <p>Up to 40 hours/month</p>
-        <ul>
-          <li>All Growth features</li>
-          <li>Proposal prep & event coordination</li>
-          <li>Vendor & client communication</li>
-          <li>Project checklists & reporting</li>
-          <li>Ongoing availability during busy seasons</li>
-          <li><strong>Optional add‐on:</strong> Virtual meeting attendance — <strong>$150/month</strong></li>
-        </ul>
-      </div>
-    </div>
+    </header>
 
-    <div class="cta">
-      <p>Ready to offload the work? Let’s keep it simple.</p>
-      <a href="mailto:hellorainydesk@gmail.com">Email Rainy Desk</a>
-    </div>
-  </section>
+    <!-- Our Services -->
+    <section>
+      <h2>Our Services</h2>
+      <nav>
+        <ul class="services-nav">
+          <li>Document Drafting</li>
+          <li>Outreach &amp; Scheduling</li>
+          <li>Logistics &amp; Coordination</li>
+          <li>Reporting &amp; Updates</li>
+          <li>Research &amp; Admin</li>
+        </ul>
+      </nav>
+    </section>
 
-  <footer>
-    &copy; 2025 Rainy Desk · Based in OKC · Serving clients virtually nationwide
-  </footer>
-</body>
+    <!-- Client Snapshots -->
+    <section>
+      <h2>Client Snapshots</h2>
+      <div class="case-studies">
+        <div class="case">
+          <h4>
+            Client A: Independent Lobbyist &amp; Nonprofit Executive (Pro plan)
+          </h4>
+          <p>
+            <strong>Before:</strong> Spent 15+ hrs/week drafting proposals,
+            one-pagers, reference letters, contracts, plus coordinating
+            meetings, catering, and weekly updates.
+          </p>
+          <p>
+            <strong>After:</strong> Rainy Desk (Pro) handles all document
+            creation, outreach scheduling, logistics, and updates.
+          </p>
+          <p class="impact">
+            <strong>Impact:</strong> Reclaimed 18 hrs/week for high-level
+            strategy and client development.
+          </p>
+        </div>
+        <div class="case">
+          <h4>
+            Client B: Independent Lobbyist / Former Legislator (Basic plan)
+          </h4>
+          <p>
+            <strong>Before:</strong> Was dedicating 8+ hrs/week to standalone
+            proposals and contracts, with no capacity for reference letters or
+            one-pagers.
+          </p>
+          <p>
+            <strong>After:</strong> Rainy Desk (Basic) drafted a winning
+            proposal and its contract, and now produces all new and renewal
+            contracts, bill one-pagers, and reference letters.
+          </p>
+          <p class="impact">
+            <strong>Impact:</strong> Freed up 10 hrs/week to focus on outreach,
+            strategy, and client meetings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monthly Retainer Packages -->
+    <section>
+      <h2>Monthly Retainer Packages</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Basic — $750/month</h3>
+          <p>Up to 15 hours/month</p>
+          <ul>
+            <li>Inbox &amp; follow-up</li>
+            <li>Scheduling &amp; calendar coordination</li>
+            <li>File cleanup &amp; organization</li>
+            <li>Light research</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>Plus — $1,250/month</h3>
+          <p>Up to 25 hours/month</p>
+          <ul>
+            <li>All Basic features</li>
+            <li>CRM updates</li>
+            <li>Document drafting</li>
+            <li>Recurring task checklists</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3>Pro — $2,000/month</h3>
+          <p>Up to 40 hours/month</p>
+          <ul>
+            <li>All Plus features</li>
+            <li>Proposal &amp; event coordination</li>
+            <li>Vendor &amp; client communication</li>
+            <li>Ongoing availability</li>
+            <li>
+              <strong>Optional add-on:</strong> Virtual meeting attendance —
+              <strong>$150/mo</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta">
+        <p>Let us handle the details.</p>
+        <a href="https://yourdomain.com/intake-form">Get started</a>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Rainy Desk · Based in OKC · Serving clients virtually
+      nationwide
+    </footer>
+  </body>
 </html>
 
